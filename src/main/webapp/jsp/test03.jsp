@@ -8,5 +8,14 @@
 </head>
 <body>
 
+	<%
+		//BMI =  몸무게 / ((키 / 100.0) * (키 / 100.0));
+	
+		String heightStr = request.getParameter("heihgt");
+		String weihgtStr = request.getParameter("heihgt");
+		
+	
+	%>
+
 </body>
 </html>

@@ -2,6 +2,8 @@ package com.pks.servlet.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +38,7 @@ public class Ex05Controller extends HttpServlet {
 		out.println("<body> <h2> 이름 : " + name + "</h2>");
 		out.println("<h3>나이 : " + age + "</h3> </body> </html>");
 		
-		
+		List<String> scoreList = Arrays.asList(new String[]{"X", "O", "O", "O", "X", "O", "O", "O", "X", "O"});
 	}
 
 }

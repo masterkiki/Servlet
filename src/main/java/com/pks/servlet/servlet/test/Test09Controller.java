@@ -27,6 +27,7 @@ public class Test09Controller extends HttpServlet {
 		out.println("지원내용 <br>" + introduce + "</body></html>");
 		
 		
+		
 	}
 
 }

@@ -16,7 +16,7 @@
 </head>
 <body>
 	<h1>날짜,시간 링크</h1>
-	<a class="bg-primary text-white" href="/jsp/test02_02.jsp" name="time" value="time">현재 시간 확인</a>
-	<a class="bg-success text-white" href="/jsp/test02_02.jsp" name="date">현재 날짜 확인</a>
+	<a class="bg-primary text-white" href="/jsp/test02_02.jsp">현재 시간 확인</a>
+	<a class="bg-success text-white" href="/jsp/test02_02.jsp">현재 날짜 확인</a>
 </body>
 </html>
