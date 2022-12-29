@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+ <%@ page import = "java.util.ArrayList"%>
+ <%@ page import = "java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,39 +13,49 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<title>Insert title here</title>
+<title>test05</title>
 </head>
 <body>
 
 	<%
-		//BMI =  몸무게 / ((키 / 100.0) * (키 / 100.0));
-	
-		String heightStr = request.getParameter("height");
-		String weightStr = request.getParameter("weight");
+		String cmStr = request.getParameter("cm");
+		String[] change = request.getParameterValues("change");
 		
-		int height = Integer.parseInt(heightStr);
-		int weight = Integer.parseInt(weightStr);
+		double cm = Integer.parseInt(cmStr);
 		
-		double bmi = weight / ((height / 100.0) * (height / 100.0));
-		
-		String status = null;
-		
-		if(bmi <= 20){
- 			status = "저체중";
-		} else if(bmi <= 25){
-			status = "정상";
-		} else if(bmi <= 30){
-			status = "과체중";
-		}  else{
-			status = "비만";
+		String check = "";
+		for(int i = 0; i < change.length; i++){		
+			check = check + change[i] + " ";
 		}
+		
+		
+		List<String> list =new ArrayList<String>();
+		
+		List<String> list1 =  check.split(" ");
+		
+		
+		double result = 0;
+		if(check.contains("in")){
+			result = cm / 2.54;
+		}
+		if(check.contains("ft")){
+			result = cm /30.48;
+		}
+		if(check.contains("yds")){
+			result = cm * 0.9144;		
+		} 
+		if(check.contains("m")){
+			result = cm / 100.0;
+		}
+		
 	%>
 	
-	<div class="container">
+	<div>
+		<h1>변환 결과</h1>
+		<div><%= cm %>cm</div> <hr>
+		<div><%= result %></div>
+
 	
-		<h1>BMI 측정 결과</h1>
-		<div class="display-4">당신은 <span class="display-4 text-info"><%= status %></span>  입니다.</div>
-		<div>BMI 수치 : <%= bmi %></div>
 	</div>
 
 </body>

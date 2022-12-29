@@ -15,8 +15,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<div class="container">
 	<h1>날짜,시간 링크</h1>
-	<a class="bg-primary text-white" href="/jsp/test02_02.jsp">현재 시간 확인</a>
-	<a class="bg-success text-white" href="/jsp/test02_02.jsp">현재 날짜 확인</a>
+	<a class="btn btn-info" href="/jsp/test02_02.jsp?what=time">현재 시간 확인</a>
+	<a class="btn btn-success text-white" href="/jsp/test02_02.jsp?what=date">현재 날짜 확인</a>
+	</div>
 </body>
 </html>

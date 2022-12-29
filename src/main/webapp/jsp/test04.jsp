@@ -10,40 +10,39 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<title>Insert title here</title>
+<title>test04</title>
 </head>
 <body>
-
 	<%
-		//BMI =  몸무게 / ((키 / 100.0) * (키 / 100.0));
-	
-		String heightStr = request.getParameter("height");
-		String weightStr = request.getParameter("weight");
+		//String numberStr = request.getParameter("number");
+		//String numberStr1 = request.getParameter("number1");
+		//int number = Integer.parseInt(numberStr);
+		//int number1 = Integer.parseInt(numberStr1);
+		int number1 = Integer.parseInt(request.getParameter("number1"));
+		int number2 = Integer.parseInt(request.getParameter("number2"));
 		
-		int height = Integer.parseInt(heightStr);
-		int weight = Integer.parseInt(weightStr);
-		
-		double bmi = weight / ((height / 100.0) * (height / 100.0));
-		
-		String status = null;
-		
-		if(bmi <= 20){
- 			status = "저체중";
-		} else if(bmi <= 25){
-			status = "정상";
-		} else if(bmi <= 30){
-			status = "과체중";
-		}  else{
-			status = "비만";
+		String operator = request.getParameter("operator");
+			
+		double result = 0;
+		if(operator.equals("X")){
+			result = number1 * number2; 
+		} else if(operator.equals("+")){
+			result = number1 + number2; 
+		} else if(operator.equals("-")){
+			result = number1 - number2; 
+		} else if(operator.equals("/")) {
+			result = number1 / (double)number2; 
 		}
 	%>
 	
 	<div class="container">
+		<h2>계산 결과</h1>
+		
+		<div class="display-3"> <%=number1 %> <%=operator %> <%= number2 %> = <span class="display-3 text-primary"><%= result %></span></div>
+		
 	
-		<h1>BMI 측정 결과</h1>
-		<div class="display-4">당신은 <span class="display-4 text-info"><%= status %></span>  입니다.</div>
-		<div>BMI 수치 : <%= bmi %></div>
 	</div>
+	
 
 </body>
 </html>
