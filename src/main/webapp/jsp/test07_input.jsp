@@ -20,6 +20,7 @@
 		<form method="get" action="/jsp/test07.jsp">
 			<div class="d-flex">
 				<input type="text" class="form-control col-3" name="menu">
+				<label><input type="checkbox" name="pointFilter" value="true">4점 이하 제외</label>
 			</div>
 			<button type="submit" class="btn btn-success">검색</button>
 		

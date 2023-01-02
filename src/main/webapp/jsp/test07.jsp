@@ -40,17 +40,42 @@
  		list.add(map);
   		  
 		String searchmenu = request.getParameter("menu");
+		//pointFliter로 true, false
+		String pointFilter = request.getParameter("pointFilter");
+		
+		if(pointFilter == null){
+			pointFilter = "false";
+		}
+	
+		
  		%>
 		
 		
 		<div class="container">
+			<h1 class="text-center">검색 결과</h1>
+	
 			<table class="table text-center">
+	
+				<thead>
+					<tr>
+						<th>메뉴</th>
+						<th>상호</th>
+						<th>별점</th>
+					</tr>
+				</thead>
+			
 				<tbody>
 					<% for(Map<String, Object> store:list){ 
 						if(searchmenu.equals(store.get("menu"))){
 							
 							Double point = (Double)store.get("point");
+							// 1. 이게 본 풀이 if(pointFilter.equals("false") || point >= 4.0){
 							
+								
+							// 	포인터 필터가 true 이고, 4.0 미만이면 보여주지 말아라
+							if(pointFilter.equals("true") && point < 4.0) {
+								continue;
+							}
 					%>
 					<tr>
 						<td><%= store.get("menu") %></td>
@@ -58,8 +83,9 @@
 						<td><%= store.get("point") %></td>
 					</tr>
 					
-					<% 	} %>
-					<% } %>
+					<%	 // 1. 본풀이 }  
+					 	}
+					} %>
 				</tbody>
 			</table>
 		</div>
