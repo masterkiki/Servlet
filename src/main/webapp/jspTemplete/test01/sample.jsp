@@ -75,13 +75,8 @@
 				
 				<%
 				for(Map<String, String> channel :list){
-					if(category.equals("전체")){ %>
-					<tr>
-						<td><%= channel.get("ch") %></td>
-						<td><%= channel.get("name") %></td>
-						<td><%= channel.get("category") %></td>
-					</tr>
-					<%} else if(channel.get("category").equals(category)){%>
+					String target = channel.get("category");
+					if(category == null || target.equals(category)){%>
 					<tr>
 						<td><%= channel.get("ch") %></td>
 						<td><%= channel.get("name") %></td>

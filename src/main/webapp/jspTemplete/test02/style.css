@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+
+
+header > .logo{
+	height : 100px;
+
+}
+
+header > .search{
+	height : 100px;
+
+}
+
+nav{
+	height : 50px;
+}
+
+
+footer{
+	height : 50px;
+}
