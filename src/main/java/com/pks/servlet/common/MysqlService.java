@@ -59,7 +59,7 @@ public class MysqlService {
 			statement.close();
 			connection.close();
 		} catch (SQLException e) {
-
+			
 			e.printStackTrace();
 	
 		}
