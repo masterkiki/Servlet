@@ -22,32 +22,33 @@
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connect();
 		
-		String query = "SELECT `name`,`url` FROM `bookmark` ORDER BY `id` DESC;";
+		String query = "SELECT * FROM `bookmark` ORDER BY `id` DESC;";
 
 		ResultSet resultSet = mysqlService.select(query);
-		
 	
 	%>
 	
 	
-	
-	<table class="table text-center">
-		<thead class="font-weight-bold">
-			<tr>
-				<td>사이트</td>
-				<td>사이트 주소</td>
-			<tr>
-		</thead>
-		
-		<tbody>
-			<% while(resultSet.next()){ %>
-			<tr>
-				<td><%= resultSet.getString("name") %></td>
-				<td><a href="<%= resultSet.getString("url")%>"><%= resultSet.getString("url") %></a></td>
-			</tr>
-			<% } %>
-		</tbody>
-	</table>
+	<div class="container">
+		<table class="table text-center">
+			<thead>
+				<tr>
+					<th>사이트</th>
+					<th>사이트 주소</th>
+				<tr>
+			</thead>
+			
+			<tbody>
+				<% while(resultSet.next()){ %>
+				<tr>
+					<td><%= resultSet.getString("name") %></td>
+					<td><a href="<%= resultSet.getString("url")%>" target="_blank"><%= resultSet.getString("url") %></a></td>
+					<td><a href="/db/test02_delete?id=<%=resultSet.getInt("id")%>">삭제</a></td>
+				</tr>
+				<% } %>
+			</tbody>
+		</table>
+	</div>
 
 </body>
 </html>

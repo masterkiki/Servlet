@@ -14,16 +14,20 @@
   <link rel="stylesheet" href="/jspTemplete/test01/style.css" type="text/css">
 </head>
 <body>
-	<h1>즐겨찾기 추가</h1>
-	<form method="get" action="/db/test02_insert">
-		<label>사이트명</label> <br>
-		<input type="text" name="name"> <br>
-		<label>사이트 주소</label> <br>
-		<input type="text" name="url">
-		<br>
-		<br>
-		<button class="btn btn-success" type="submit">추가</button>
-	</form>
+	<div class="container">
+		<h1>즐겨찾기 추가</h1>
+		
+		<!-- dopost로 잡았기 때문에 포스트로 맞춰준다 -->
+		<form method="post" action="/db/test02_insert">
+			<label>사이트 명</label> <br>
+			<input type="text"  class="form-control" name="name"> <br>
+			<label>사이트 주소</label> <br>
+			<input type="text"  class="form-control" name="url">
+			<br>
+			<br>
+			<button class="btn btn-success" type="submit">추가</button>
+		</form>
+	</div>
 
 </body>
 </html>
